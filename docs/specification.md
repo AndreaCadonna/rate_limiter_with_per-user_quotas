@@ -231,7 +231,7 @@ When running in `scenario` mode, output shall be one JSON line per request, in t
 - **Python 3.10+ as implementation language.** Standard library only.
 - **In-memory state only.** Bucket state lives in a Python dictionary. Lost on process exit.
 - **Small user counts.** Scenarios involve 2-5 users. No optimization for large user populations.
-- **Floating-point token counts.** Token values are floats to support fractional refills. Output values are rounded to 1 decimal place for display.
+- **Floating-point token counts.** Token values are floats to support fractional refills. Output values are rounded to 2 decimal places for display.
 
 ## Requirement Coverage Matrix
 
