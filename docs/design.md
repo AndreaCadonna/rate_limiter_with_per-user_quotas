@@ -53,7 +53,7 @@ rate-limiter/
 - `main() -> None` — Entry point. Parses arguments, dispatches to the appropriate command, handles exit codes.
 - `run_check(user: str, time_val: float | None, config: dict) -> dict` — Process a single check request. Returns the response dict.
 - `run_scenario(file_path: str) -> list[dict]` — Load a scenario file, process all requests in order, return list of response dicts.
-- `format_response(user: str, time_val: float, decision: str, remaining: float, retry_after: float | None) -> dict` — Build the JSON-serializable response dict. Rounds `remaining` and `retry_after` to 1 decimal place.
+- `format_response(user: str, time_val: float, decision: str, remaining: float, retry_after: float | None) -> dict` — Build the JSON-serializable response dict. Rounds `remaining` and `retry_after` to 2 decimal places.
 - `parse_args(argv: list[str] | None = None) -> argparse.Namespace` — Parse and validate CLI arguments. Returns parsed namespace.
 
 **Exit codes:**
@@ -245,7 +245,7 @@ CLI input
 - Config → `load_config()` validates structure, builds `QuotaConfig` (REQ-RL-005)
 - Per-user dispatch → `check_request()` in QuotaTracker handles lookup/create (REQ-RL-004, REQ-RL-006)
 - Algorithm → `try_consume()` implements refill + consume/deny (REQ-RL-001, REQ-RL-002, REQ-RL-003)
-- Output → `format_response()` builds JSON with all required fields, rounds floats to 1 decimal
+- Output → `format_response()` builds JSON with all required fields, rounds floats to 2 decimal places
 
 ## Implementation Plan
 
