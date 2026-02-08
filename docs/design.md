@@ -431,4 +431,12 @@ Expected: narrated output showing (1) burst and exhaustion with recovery, (2) pe
 
 ## Deviation Log
 
-Empty at design time — populated during implementation.
+### DEV-001: `from __future__ import annotations` added to all modules
+
+**Reason:** Runtime Python is 3.9.4; the design assumed 3.10+. The `float | None` union syntax in type hints fails at runtime on 3.9. Adding `from __future__ import annotations` makes annotations lazy strings, enabling 3.10+ syntax on 3.9. No behavioral change — all function signatures match the design exactly.
+
+**Files affected:** `token_bucket.py`, `quota_tracker.py`, `config_loader.py`, `rate_limiter.py`, `demo.py`
+
+### DEV-002: `demo.py` uses direct imports instead of subprocess calls
+
+**Reason:** The design specified `run_check(args)` calling `rate_limiter.py check` as a subprocess per request. However, the spec states "All state is in-memory and does not persist across process invocations." Each subprocess call creates a fresh tracker, so token depletion across multiple requests within a demo cannot be demonstrated via individual `check` subprocess calls. Changed demos 1 and 2 to use direct imports (`create_tracker`, `check_request`, `format_response`) within a single process to maintain state. Demo 3 was already working via scenario mode. The `narrate()` function still writes to stderr as designed.
