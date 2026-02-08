@@ -1,0 +1,20 @@
+{
+  "config": {
+    "default": { "capacity": 5, "refill_rate": 1.0 },
+    "users": {
+      "premium_user": { "capacity": 10, "refill_rate": 5.0 }
+    }
+  },
+  "requests": [
+    { "user": "premium_user", "time": 0.0 },
+    { "user": "premium_user", "time": 0.0 },
+    { "user": "premium_user", "time": 0.0 },
+    { "user": "free_user", "time": 0.0 },
+    { "user": "free_user", "time": 0.0 },
+    { "user": "free_user", "time": 0.0 },
+    { "user": "free_user", "time": 0.0 },
+    { "user": "free_user", "time": 0.0 },
+    { "user": "free_user", "time": 0.0 },
+    { "user": "premium_user", "time": 0.0 }
+  ]
+}

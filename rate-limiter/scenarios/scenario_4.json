@@ -1,0 +1,10 @@
+{
+  "config": {
+    "default": { "capacity": 5, "refill_rate": 1.0 },
+    "users": {}
+  },
+  "requests": [
+    { "user": "alice", "time": 0.0 },
+    { "user": "alice", "time": 10.0 }
+  ]
+}

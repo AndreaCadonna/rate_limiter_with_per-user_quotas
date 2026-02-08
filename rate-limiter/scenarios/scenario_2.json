@@ -1,0 +1,16 @@
+{
+  "config": {
+    "default": { "capacity": 3, "refill_rate": 1.0 },
+    "users": {}
+  },
+  "requests": [
+    { "user": "alice", "time": 0.0 },
+    { "user": "alice", "time": 0.0 },
+    { "user": "alice", "time": 0.0 },
+    { "user": "alice", "time": 0.0 },
+    { "user": "bob", "time": 0.0 },
+    { "user": "bob", "time": 0.0 },
+    { "user": "alice", "time": 1.0 },
+    { "user": "bob", "time": 1.0 }
+  ]
+}
